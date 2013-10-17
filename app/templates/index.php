@@ -11,6 +11,7 @@
     <meta name="keywords" content="робот-пылесос, irobot, робот уборщик, автоматический пылесос, официальный представитель irobot" >
     <link rel="shortcut icon" type="image/png" href="http://smartrobot.com.ua/static/img/0000/0000/0664/664669.rtfwuven3p.16x16.png"/>
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="css/site.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="http://smartrobot.com.ua/css/themes/simple/styles.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="http://smartrobot.com.ua/js/library/fancybox/fancybox.css" media="screen" rel="stylesheet" type="text/css"/>
@@ -22,39 +23,53 @@
     <script type="text/javascript" src="js/order.js"></script>
     <script type="text/javascript" src="http://smartrobot.com.ua/js/library/pr/plugins.v1363196721.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://smartrobot.com.ua/js/pr/common.v1379801023.js" charset="utf-8"></script>
-    <script type="text/x-template">
-        <form action="https://www.liqpay.com/?do=clickNbuy" method="POST">
-            <input type="hidden" name="operation_xml" value="{{=xml_encoded}}" />
-            <input type="hidden" name="signature" value="{{=sign}}" />
-            <input class="button pay" type="submit" name="process" value="Оплатить">
-        </form>
+    <script type="text/x-template" id="errors-template">
+        <ul>
+            {{~it.errors :error}}
+                <li>{{=error}}</li>
+            {{~}}
+        </ul>
+    </script>
+    <script type="text/x-template" id="liqpay-form">
+        <div id="product-order">
+            <form action="https://www.liqpay.com/?do=clickNbuy" class="form-horizontal" method="POST">
+                <div id="error-messages" class="alert alert-danger" style="display: none;"></div>
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Ф.И.О <span style="color:red;">*</span></label>
+                    <div class="controls">
+                        <input type="text" class="user_name" id="inputName" placeholder="Ф.И.О"/><br>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPhone">Телефон <span style="color:red;">*</span></label>
+                    <div class="controls">
+                        <input type="text" class="user_phone" id="inputPhone" placeholder="Телефон"/><br>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">E-Mail <span style="color:red;">*</span></label>
+                    <div class="controls">
+                        <input type="text" class="user_email" id="inputEmail" placeholder="E-Mail"/><br>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputAddress">Адрес доставки</label>
+                    <div class="controls">
+                        <textarea id="inputAddress" class="user_delivery_address" placeholder="Адрес доставки"></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="operation_xml" class="xml_encoded" value="{{=it.xml_encoded}}" />
+                <input type="hidden" name="signature" value="{{=it.sign}}" />
+                <div class="control-group">
+                    <div class="controls">
+                        <input class="btn pay" type="submit" name="process" value="Оплатить">
+                    </div>
+                </div>
+            </form>
+        </div>
     </script>
 </head>
 <body id="top-body" data-html-version="11111302" data-ng-controller="BlocksController" data-ng-init="moduleId = 1" data-lang="ru_RU" data-tld="ru" style="">
-<?php
-$id_merchant = 'i2992350515'; // ID Мерчанта.
-$result_url = 'http://smartrobot.com.ua'; // URL при успешном платеже, куда отправят покупателя.
-$server_url = 'http://smartrobot.com.ua'; // Проверка платежа на сервере.
-$merc_sign = 'YnkRCb0fh6ZspQU1ykG6H8SLkv8Ug7nmrk6fNk0mX'; // Сама подпись.
-$price = '10'; // Стоимость покупки
-$xml="<request>
-      <version>1.2</version>
-      <merchant_id>$id_merchant</merchant_id>
-      <result_url>$result_url</result_url>
-      <server_url>$server_url</server_url>
-      <order_id>".md5(microtime())."</order_id>
-      <amount>$price</amount>
-      <currency>UAH</currency>
-      <description>Оплата товара на сайте smartrobot.com.ua</description>
-      <default_phone></default_phone>
-      <pay_way>card</pay_way>
-      <goods_id>".$product_id."</goods_id>
-</request>";
-//$xml=iconv('windows-1251','utf-8',$xml); // это нужно только если у вас кодировка НЕ utf, а, например, win-1251
-$sign = base64_encode(sha1($merc_sign . $xml . $merc_sign,1));
-$xml_encoded = base64_encode($xml);
-// $product_id - ID товара, который мы продаем.
-?>
 <div id="main-wrapper" style="height: 100%; overflow: inherit; margin-top: auto; ">	
 	<div id="wrapper">
 		<div class="bg">
