@@ -6,4 +6,4 @@ EMail: <?php echo $user_email ?><br>
 Адрес доставки: <?php echo $user_delivery_address ?><br>
 <br>
 Параметры оплаты на LiqPay:<br>
-<?php echo htmlspecialchars($xml) ?><br>
+<?php echo htmlentities($xml) ?><br>
