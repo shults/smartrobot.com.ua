@@ -45,8 +45,8 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
     {
         $_SERVER['SERVER_NAME'] = 'slim';
         $_SERVER['SERVER_PORT'] = '80';
-        $_SERVER['SCRIPT_NAME'] = '/foo/index.php';
-        $_SERVER['REQUEST_URI'] = '/foo/index.php/bar/xyz';
+        $_SERVER['SCRIPT_NAME'] = '/foo/app.php';
+        $_SERVER['REQUEST_URI'] = '/foo/app.php/bar/xyz';
         $_SERVER['PATH_INFO'] = '/bar/xyz';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['QUERY_STRING'] = 'one=1&two=2&three=3';
@@ -94,7 +94,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
     {
         $env = \Slim\Environment::getInstance(true);
         $this->assertEquals('/bar/xyz', $env['PATH_INFO']);
-        $this->assertEquals('/foo/index.php', $env['SCRIPT_NAME']);
+        $this->assertEquals('/foo/app.php', $env['SCRIPT_NAME']);
     }
 
     /**
@@ -106,11 +106,11 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testParsesPathsWithoutUrlRewriteInRootDirectory()
     {
-        $_SERVER['REQUEST_URI'] = '/index.php/bar/xyz';
-        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['REQUEST_URI'] = '/app.php/bar/xyz';
+        $_SERVER['SCRIPT_NAME'] = '/app.php';
         $env = \Slim\Environment::getInstance(true);
         $this->assertEquals('/bar/xyz', $env['PATH_INFO']);
-        $this->assertEquals('/index.php', $env['SCRIPT_NAME']);
+        $this->assertEquals('/app.php', $env['SCRIPT_NAME']);
     }
 
     /**
@@ -123,12 +123,12 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testParsesPathsWithoutUrlRewriteInRootDirectoryForAppRootUri()
     {
-        $_SERVER['REQUEST_URI'] = '/index.php';
-        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['REQUEST_URI'] = '/app.php';
+        $_SERVER['SCRIPT_NAME'] = '/app.php';
         unset($_SERVER['PATH_INFO']);
         $env = \Slim\Environment::getInstance(true);
         $this->assertEquals('/', $env['PATH_INFO']);
-        $this->assertEquals('/index.php', $env['SCRIPT_NAME']);
+        $this->assertEquals('/app.php', $env['SCRIPT_NAME']);
     }
 
     /**
@@ -140,7 +140,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testParsesPathsWithUrlRewriteInSubdirectory()
     {
-        $_SERVER['SCRIPT_NAME'] = '/foo/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/foo/app.php';
         $_SERVER['REQUEST_URI'] = '/foo/bar/xyz';
         unset($_SERVER['PATH_INFO']);
         $env = \Slim\Environment::getInstance(true);
@@ -157,7 +157,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testParsesPathsWithUrlRewriteInRootDirectory()
     {
-        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/app.php';
         $_SERVER['REQUEST_URI'] = '/bar/xyz';
         unset($_SERVER['PATH_INFO']);
         $env = \Slim\Environment::getInstance(true);
@@ -176,7 +176,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
     public function testParsesPathsWithUrlRewriteInRootDirectoryForAppRootUri()
     {
         $_SERVER['REQUEST_URI'] = '/';
-        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/app.php';
         unset($_SERVER['PATH_INFO']);
         $env = \Slim\Environment::getInstance(true);
         $this->assertEquals('/', $env['PATH_INFO']);
@@ -204,7 +204,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testRemovesQueryStringFromPathInfo()
     {
-        $_SERVER['SCRIPT_NAME'] = '/foo/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/foo/app.php';
         $_SERVER['REQUEST_URI'] = '/foo/bar/xyz?one=1&two=2&three=3';
         unset($_SERVER['PATH_INFO']);
         $env = \Slim\Environment::getInstance(true);
@@ -224,7 +224,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      */
     public function testPathInfoRetainsUrlEncodedCharacters()
     {
-        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/app.php';
         $_SERVER['REQUEST_URI'] = '/foo/%23bar'; //<-- URL-encoded "#bar"
         $env = \Slim\Environment::getInstance(true);
         $this->assertEquals('/foo/%23bar', $env['PATH_INFO']);

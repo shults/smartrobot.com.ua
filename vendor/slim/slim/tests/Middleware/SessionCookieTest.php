@@ -51,7 +51,7 @@ class SessionCookieTest extends PHPUnit_Framework_TestCase
     public function testSessionCookieIsCreatedAndEncrypted()
     {
         \Slim\Environment::mock(array(
-            'SCRIPT_NAME' => '/index.php',
+            'SCRIPT_NAME' => '/app.php',
             'PATH_INFO' => '/foo'
         ));
         $app = new \Slim\Slim();
@@ -78,7 +78,7 @@ class SessionCookieTest extends PHPUnit_Framework_TestCase
     public function testSessionIsPopulatedFromCookie()
     {
         \Slim\Environment::mock(array(
-            'SCRIPT_NAME' => '/index.php',
+            'SCRIPT_NAME' => '/app.php',
             'PATH_INFO' => '/foo',
             'COOKIE' => 'slim_session=1644004961%7CLKkYPwqKIMvBK7MWl6D%2BxeuhLuMaW4quN%2F512ZAaVIY%3D%7Ce0f007fa852c7101e8224bb529e26be4d0dfbd63',
         ));
@@ -99,7 +99,7 @@ class SessionCookieTest extends PHPUnit_Framework_TestCase
     public function testSessionIsPopulatedAsEmptyIfNoCookie()
     {
         \Slim\Environment::mock(array(
-            'SCRIPT_NAME' => '/index.php',
+            'SCRIPT_NAME' => '/app.php',
             'PATH_INFO' => '/foo'
         ));
         $app = new \Slim\Slim();

@@ -4,22 +4,31 @@
 <!--[if IE 8 ]><html id="ng:app"  data-ng-app="Nethouse" class="no-js ie8" lang="ru" xmlns:ng="http://angularjs.org"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html id="ng:app" data-ng-app="Nethouse" class="no-js" lang="ru"> <!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title>Раздел online оплаты покупок</title>
-<base href="http://localhost/vados/"/>
-<meta name="description" content="Продажа роботов-пылесосов от официального представителя iRobot в Украине. Домашний тест-драйв. Бесплатная доставка по Украине, беспроцентная рассрочка, официальная гарантия. Представительство в ТРЦ &quot;D" >
-<meta name="keywords" content="робот-пылесос, irobot, робот уборщик, автоматический пылесос, официальный представитель irobot" >
-<link rel="shortcut icon" type="image/png" href="http://smartrobot.com.ua/static/img/0000/0000/0664/664669.rtfwuven3p.16x16.png"/>	
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
-<link href="site.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
-<link href="http://smartrobot.com.ua/css/themes/simple/styles.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
-<link href="http://smartrobot.com.ua/js/library/fancybox/fancybox.css" media="screen" rel="stylesheet" type="text/css"/>
-<link href="http://smartrobot.com.ua/css/plugins.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
-<link href="http://smartrobot.com.ua/css/countdown/default/styles.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://smartrobot.com.ua/js/library/pr/plugins.v1363196721.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://smartrobot.com.ua/js/pr/common.v1379801023.js" charset="utf-8"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Раздел online оплаты покупок</title>
+    <base href="http://localhost/vados/" />
+    <meta name="description" content="Продажа роботов-пылесосов от официального представителя iRobot в Украине. Домашний тест-драйв. Бесплатная доставка по Украине, беспроцентная рассрочка, официальная гарантия. Представительство в ТРЦ &quot;D" >
+    <meta name="keywords" content="робот-пылесос, irobot, робот уборщик, автоматический пылесос, официальный представитель irobot" >
+    <link rel="shortcut icon" type="image/png" href="http://smartrobot.com.ua/static/img/0000/0000/0664/664669.rtfwuven3p.16x16.png"/>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/site.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://smartrobot.com.ua/css/themes/simple/styles.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://smartrobot.com.ua/js/library/fancybox/fancybox.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://smartrobot.com.ua/css/plugins.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="http://smartrobot.com.ua/css/countdown/default/styles.v11111302.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/doT.min.js"></script>
+    <script type="text/javascript" src="js/order.js"></script>
+    <script type="text/javascript" src="http://smartrobot.com.ua/js/library/pr/plugins.v1363196721.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://smartrobot.com.ua/js/pr/common.v1379801023.js" charset="utf-8"></script>
+    <script type="text/x-template">
+        <form action="https://www.liqpay.com/?do=clickNbuy" method="POST">
+            <input type="hidden" name="operation_xml" value="{{=xml_encoded}}" />
+            <input type="hidden" name="signature" value="{{=sign}}" />
+            <input class="button pay" type="submit" name="process" value="Оплатить">
+        </form>
+    </script>
 </head>
 <body id="top-body" data-html-version="11111302" data-ng-controller="BlocksController" data-ng-init="moduleId = 1" data-lang="ru_RU" data-tld="ru" style="">
 <?php
@@ -42,7 +51,7 @@ $xml="<request>
       <goods_id>".$product_id."</goods_id>
 </request>";
 //$xml=iconv('windows-1251','utf-8',$xml); // это нужно только если у вас кодировка НЕ utf, а, например, win-1251
-$sign=base64_encode(sha1($merc_sign.$xml.$merc_sign,1));
+$sign = base64_encode(sha1($merc_sign . $xml . $merc_sign,1));
 $xml_encoded = base64_encode($xml);
 // $product_id - ID товара, который мы продаем.
 ?>
@@ -161,81 +170,49 @@ $xml_encoded = base64_encode($xml);
 						<article class="products-wrap res-wrapper">
 							<div class="product-item inline" id="item1466990">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/1466990"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/4961/4961923.e4aokjrv7c.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 620" title="Робот-пылесос iRobot Roomba 620" /></div></a><p><a href="http://smartrobot.com.ua/products/1466990" class="blue">iRobot Roomba 620</a><span class="price"><span class="product-price-data" data-cost="3800">3800</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
-									<input class="button" type="submit" name="process" value="Рассрочка online">
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
+                                    <input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item1846618">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/1846618"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/5972/5972118.9f1a562v1i.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 650" title="Робот-пылесос iRobot Roomba 650" /></div></a><p><a href="http://smartrobot.com.ua/products/1846618" class="blue">iRobot Roomba 650</a><span class="price"><span class="product-price-data" data-cost="4700">4700</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item310144">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/310144"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/1667/1667060.c0678em9u6.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 760" title="Робот-пылесос iRobot Roomba 760" /></div></a><p><a href="http://smartrobot.com.ua/products/310144" class="blue">iRobot Roomba 760</a><span class="old-price"><span class="product-price-data" data-cost="6400">6400</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="5970">5970</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item159569">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/159569"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/0867/867698.hvphl6k4m6.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 770" title="Робот-пылесос iRobot Roomba 770" /></div></a><p><a href="http://smartrobot.com.ua/products/159569" class="blue">iRobot Roomba 770</a><span class="old-price"><span class="product-price-data" data-cost="6970">6970</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="6270">6270</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item159666">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/159666"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/0867/867983.2cahqt2n6v.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 780" title="Робот-пылесос iRobot Roomba 780" /></div></a><p><a href="http://smartrobot.com.ua/products/159666" class="blue">iRobot Roomba 780</a><span class="old-price"><span class="product-price-data" data-cost="7970">7970</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="6970">6970</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item387183">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/387183"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/2022/2022631.quvaw4k19m.156x120.png?1" class="product-preview-img" alt="Робот-пылесос iRobot Roomba 790" title="Робот-пылесос iRobot Roomba 790" /></div></a><p><a href="http://smartrobot.com.ua/products/387183" class="blue">iRobot Roomba 790</a><span class="old-price"><span class="product-price-data" data-cost="9970">9970</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="8970">8970</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div id="item115866" class="product-item inline">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/115866"><div><img title="Робот-пылесос iRobot Roomba 521" alt="Робот-пылесос iRobot Roomba 521" class="product-preview-img" src="http://smartrobot.com.ua/static/img/0000/0000/0664/664641.dmvovzpeer.156x120.png?1"></div></a><p><a class="blue" href="http://smartrobot.com.ua/products/115866">iRobot Roomba 521</a><span class="price"><span data-cost="3600" class="product-price-data">3600</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div id="item158871" class="product-item inline">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/158871"><div><img title="Робот-пылесос iRobot Roomba 555" alt="Робот-пылесос iRobot Roomba 555" class="product-preview-img" src="http://smartrobot.com.ua/static/img/0000/0000/0864/864540.3yfd4u3k65.156x120.png?1"></div></a><p><a class="blue" href="http://smartrobot.com.ua/products/158871">iRobot Roomba 555</a><span class="price"><span data-cost="4500" class="product-price-data">4500</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
@@ -250,31 +227,19 @@ $xml_encoded = base64_encode($xml);
 						<article class="products-wrap res-wrapper">
 							<div class="product-item inline" id="item158860">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/158860"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/0864/864412.riqe2x5l9q.156x120.png?1" class="product-preview-img" alt="Моющий робот-пылесос iRobot Scooba 385" title="Моющий робот-пылесос iRobot Scooba 385" /></div></a><p><a href="http://smartrobot.com.ua/products/158860" class="blue">iRobot Scooba 385</a><span class="old-price"><span class="product-price-data" data-cost="6300">6300</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="6000">6000</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item310157">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/310157"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/1667/1667295.l3trp2oj05.156x120.png?1" class="product-preview-img" alt="Моющий робот-пылесос iRobot Scooba 390" title="Моющий робот-пылесос iRobot Scooba 390" /></div></a><p><a href="http://smartrobot.com.ua/products/310157" class="blue">iRobot Scooba 390</a><span class="old-price"><span class="product-price-data" data-cost="6700">6700</span> грн.</span><span class="price sale-price"><span class="product-price-data" data-cost="6500">6500</span> грн.<span class="sale-icon inline"></span></span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 							<div class="product-item inline" id="item310170">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/310170"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/1667/1667434.k3t2fh8svr.156x120.png?1" class="product-preview-img" alt="Моющий робот-пылесос iRobot Scooba 230" title="Моющий робот-пылесос iRobot Scooba 230" /></div></a><p><a href="http://smartrobot.com.ua/products/310170" class="blue">iRobot Scooba 230</a><span class="price"><span class="product-price-data" data-cost="3600">3600</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
@@ -289,11 +254,7 @@ $xml_encoded = base64_encode($xml);
 						<article class="products-wrap res-wrapper">
 							<div class="product-item inline" id="item4309983">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/4309983"><div><img src="http://smartrobot.com.ua/static/img/0000/0001/1751/11751362.hwuaz1oru5.156x120.png?1" class="product-preview-img" alt="iRobot Braava 380" title="iRobot Braava 380" /></div></a><p><a href="http://smartrobot.com.ua/products/4309983" class="blue">iRobot Braava 380</a><span class="price"><span class="product-price-data" data-cost="4100">4100</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
@@ -308,12 +269,8 @@ $xml_encoded = base64_encode($xml);
 						<article class="products-wrap res-wrapper">
 							<div class="product-item inline" id="item3789271">
 							<div class="wrapper"><a href="http://smartrobot.com.ua/products/3789271"><div><img src="http://smartrobot.com.ua/static/img/0000/0001/0413/10413140.4ox2v2nji1.156x120.png?1" class="product-preview-img" alt="Робот для бассейнов iRobot Mirra 530 — фото, описание" title="Робот для бассейнов iRobot Mirra 530 — фото, описание" /></div></a><p><a href="http://smartrobot.com.ua/products/3789271" class="blue">iRobot Mirra 530</a><span class="price"><span class="product-price-data" data-cost="15900">15900</span> грн.</span></p>
-								<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
-									<input class="button" type="submit" name="process" value="Рассрочка online">
+                                <input class="button pay" type="button" name="process" value="Оплатить online">
+                                <input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>
 						</article>
@@ -327,11 +284,7 @@ $xml_encoded = base64_encode($xml);
 						<article class="products-wrap res-wrapper">
 							<div class="product-item inline" id="item310201">
 								<div class="wrapper"><a href="http://smartrobot.com.ua/products/310201"><div><img src="http://smartrobot.com.ua/static/img/0000/0000/1667/1667528.584olspr1r.156x120.png?1" class="product-preview-img" alt="Робот для мойки окон Windoro WCR-I001" title="Робот для мойки окон Windoro WCR-I001" /></div></a><p><a href="http://smartrobot.com.ua/products/310201" class="blue">Windoro WCR-I001</a><span class="price"><span class="product-price-data" data-cost="6700">6700</span> грн.</span></p>
-									<form action="https://www.liqpay.com/?do=clickNbuy" method="POST" />
-										<input type="hidden" name="operation_xml" value="<?=$xml_encoded;?>" />
-										<input type="hidden" name="signature" value="<?=$sign;?>" />
-										<input class="button" type="submit" name="process" value="Оплатить online">
-									</form>
+                                    <input class="button pay" type="button" name="process" value="Оплатить online">
 									<input class="button" type="submit" name="process" value="Рассрочка online">
 								</div>
 							</div>

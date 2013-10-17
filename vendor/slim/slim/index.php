@@ -93,7 +93,7 @@ $app->get('/', function () {
             <section>
                 <h2>Get Started</h2>
                 <ol>
-                    <li>The application code is in <code>index.php</code></li>
+                    <li>The application code is in <code>app.php</code></li>
                     <li>Read the <a href="http://docs.slimframework.com/" target="_blank">online documentation</a></li>
                     <li>Follow <a href="http://www.twitter.com/slimphp" target="_blank">@slimphp</a> on Twitter</li>
                 </ol>

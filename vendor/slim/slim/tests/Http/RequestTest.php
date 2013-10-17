@@ -738,13 +738,13 @@ class RequestTest extends PHPUnit_Framework_TestCase
     public function testAppPathsInSubdirectoryWithoutHtaccess()
     {
         $env = \Slim\Environment::mock(array(
-            'SCRIPT_NAME' => '/foo/index.php', //<-- Physical
+            'SCRIPT_NAME' => '/foo/app.php', //<-- Physical
             'PATH_INFO' => '/bar/xyz', //<-- Virtual
         ));
         $req = new \Slim\Http\Request($env);
-        $this->assertEquals('/foo/index.php', $req->getScriptName());
-        $this->assertEquals('/foo/index.php', $req->getRootUri());
-        $this->assertEquals('/foo/index.php/bar/xyz', $req->getPath());
+        $this->assertEquals('/foo/app.php', $req->getScriptName());
+        $this->assertEquals('/foo/app.php', $req->getRootUri());
+        $this->assertEquals('/foo/app.php/bar/xyz', $req->getPath());
         $this->assertEquals('/bar/xyz', $req->getPathInfo());
         $this->assertEquals('/bar/xyz', $req->getResourceUri());
     }
@@ -772,13 +772,13 @@ class RequestTest extends PHPUnit_Framework_TestCase
     public function testAppPathsInRootDirectoryWithoutHtaccess()
     {
         $env = \Slim\Environment::mock(array(
-            'SCRIPT_NAME' => '/index.php', //<-- Physical
+            'SCRIPT_NAME' => '/app.php', //<-- Physical
             'PATH_INFO' => '/bar/xyz', //<-- Virtual
         ));
         $req = new \Slim\Http\Request($env);
-        $this->assertEquals('/index.php', $req->getScriptName());
-        $this->assertEquals('/index.php', $req->getRootUri());
-        $this->assertEquals('/index.php/bar/xyz', $req->getPath());
+        $this->assertEquals('/app.php', $req->getScriptName());
+        $this->assertEquals('/app.php', $req->getRootUri());
+        $this->assertEquals('/app.php/bar/xyz', $req->getPath());
         $this->assertEquals('/bar/xyz', $req->getPathInfo());
         $this->assertEquals('/bar/xyz', $req->getResourceUri());
     }
