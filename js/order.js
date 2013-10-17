@@ -94,7 +94,7 @@ $(function(){
                     errors.push( App.messages.empty_email );
                 }
 
-                if (!(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/).test(user_email)) {
+                if (!(/^[\w\.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/).test(user_email)) {
                     errors.push( App.messages.wrong_format_email );
                 }
 
