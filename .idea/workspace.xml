@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/liqpay_config.php" afterPath="$PROJECT_DIR$/app/main_config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/_liqpay_request.xml.php" afterPath="$PROJECT_DIR$/app/templates/_liqpay_request.xml.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.php" afterPath="$PROJECT_DIR$/app/app.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/index.php" afterPath="$PROJECT_DIR$/app/templates/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/order.js" afterPath="$PROJECT_DIR$/js/order.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/main_config.php" afterPath="$PROJECT_DIR$/app/main_config.php" />
     </list>
     <ignored path="vados.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1382009867099" ignored="false" />
-    <file path="/index.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1382012380006" ignored="false" />
+    <file path="/index.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1382014097667" ignored="false" />
     <file path="/.htaccess" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1381945523236" ignored="false" />
-    <file path="/app.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1382013081197" ignored="false" />
+    <file path="/app.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1382014030514" ignored="false" />
     <file path="/config.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1381946592270" ignored="false" />
     <file path="/liqpay_config.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1381946865702" ignored="false" />
     <file path="/_liqpay_request.xml.php" changelist="ad8fa28d-b33a-477e-ab29-74a8e6b7d3f0" time="1381989007682" ignored="false" />
@@ -52,7 +49,7 @@
       <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="12" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-18.583334">
+            <state line="15" column="32" selection-start="474" selection-end="474" vertical-scroll-proportion="-9.375">
               <folding />
             </state>
           </provider>
@@ -79,27 +76,37 @@
       <file leaf-file-name="Slim.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Slim.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+            <state line="11" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="-6.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_config.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main_config.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/main_config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="21" selection-start="325" selection-end="325" vertical-scroll-proportion="0.16006097">
+            <state line="10" column="13" selection-start="467" selection-end="475" vertical-scroll-proportion="-6.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="65" selection-start="4579" selection-end="4590" vertical-scroll-proportion="-11.25">
+            <state line="8" column="37" selection-start="689" selection-end="689" vertical-scroll-proportion="0.1866252">
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#3;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#section#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#br#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,11 +168,11 @@
         <option value="$PROJECT_DIR$/app/config.php" />
         <option value="$PROJECT_DIR$/app/templates/_liqpay_request.xml.php" />
         <option value="$PROJECT_DIR$/js/order.js" />
-        <option value="$PROJECT_DIR$/app/templates/index.php" />
         <option value="$PROJECT_DIR$/app/templates/_mail_to_admin.php" />
-        <option value="$PROJECT_DIR$/app/app.php" />
         <option value="$PROJECT_DIR$/app/Mail.php" />
+        <option value="$PROJECT_DIR$/app/app.php" />
         <option value="$PROJECT_DIR$/app/main_config.php" />
+        <option value="$PROJECT_DIR$/app/templates/index.php" />
       </list>
     </option>
   </component>
@@ -457,26 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Slim.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/order.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="41" selection-start="2640" selection-end="2661" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="65" selection-start="4579" selection-end="4590" vertical-scroll-proportion="-11.25">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -508,17 +499,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Slim.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="-6.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="12" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-18.583334">
+        <state line="15" column="32" selection-start="474" selection-end="474" vertical-scroll-proportion="-9.375">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/main_config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="325" selection-end="325" vertical-scroll-proportion="0.16006097">
+        <state line="10" column="13" selection-start="467" selection-end="475" vertical-scroll-proportion="-6.25">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="37" selection-start="689" selection-end="689" vertical-scroll-proportion="0.1866252">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#1;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#2;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#3;n#form#0;n#div#0;n#script#7;n#head#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#section#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#br#0;n#span#1;n#h1#0;n#div#0;n#section#1;n#div#0;n#header#0;n#section#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

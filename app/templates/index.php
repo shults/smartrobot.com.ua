@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Раздел online оплаты покупок</title>
-    <base href="http://localhost/vados/" />
+    <base href="<?php echo $base_url ?>" />
     <meta name="description" content="Продажа роботов-пылесосов от официального представителя iRobot в Украине. Домашний тест-драйв. Бесплатная доставка по Украине, беспроцентная рассрочка, официальная гарантия. Представительство в ТРЦ &quot;D" >
     <meta name="keywords" content="робот-пылесос, irobot, робот уборщик, автоматический пылесос, официальный представитель irobot" >
     <link rel="shortcut icon" type="image/png" href="http://smartrobot.com.ua/static/img/0000/0000/0664/664669.rtfwuven3p.16x16.png"/>

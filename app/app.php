@@ -11,8 +11,10 @@ $app = new Slim(require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'config.php');
 /**
  * Index page
  */
-$app->get('/', function() use ($app) {
-    $app->render('index.php');
+$app->get('/', function() use ($app, $main_config) {
+    $app->render('index.php', array(
+        'config' => $main_config
+    ));
 });
 
 /**
