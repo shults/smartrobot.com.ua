@@ -57,7 +57,7 @@ $app->post('/set_order_data', function() use ($app, $main_config) {
     $mail->setSender($main_config['mail_from']);
     $mail->setSubject($main_config['mail_subject']);
     $mail->setTo($main_config['admin_email']);
-    $mail->setText($message);
+    $mail->setHtml($message);
     $mail->send();
 
     $app->response()->write(json_encode(array(

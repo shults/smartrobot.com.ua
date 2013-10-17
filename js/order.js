@@ -113,7 +113,8 @@ $(function(){
                             user_name: user_name,
                             user_phone: user_phone,
                             user_email: user_email,
-                            user_delivery_address: user_delivery_address
+                            user_delivery_address: user_delivery_address,
+                            xml_encoded: $(this).find('.xml_encoded').val()
                         },
                         success: function (data, textSatatus, jqXHR) {
                             if (data.error == 0) {
