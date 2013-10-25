@@ -1,3 +1,4 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8" ?>' ?>
 <request>
     <version>1.2</version>
     <merchant_id><?php echo $config['merchant_id'] ?></merchant_id>
