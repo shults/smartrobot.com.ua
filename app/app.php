@@ -27,6 +27,7 @@ $app->post('/get_form_data', function() use ($app, $main_config) {
     $xml = $app->render('_liqpay_request.xml.php', array(
         'price' => $app->request()->post('price'),
         'product_id' => $app->request()->post('product_id'),
+        'product_name' => $app->request()->post('product_name'),
         'config' => $main_config
     ), true);
 
@@ -49,6 +50,7 @@ $app->post('/set_order_data', function() use ($app, $main_config) {
         'user_phone' => $app->request()->post('user_phone'),
         'user_email' => $app->request()->post('user_email'),
         'user_delivery_address' => $app->request()->post('user_delivery_address'),
+        'user_comment' => $app->request()->post('user_comment'),
         'xml' => base64_decode($app->request()->post('xml_encoded')),
     ), true);
 

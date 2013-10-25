@@ -31,31 +31,48 @@
         </ul>
     </script>
     <script type="text/x-template" id="liqpay-form">
-        <div id="product-order">
+        <div id="product-order" class="container span8">
             <form action="https://www.liqpay.com/?do=clickNbuy" class="form-horizontal" method="POST">
+                <div class="control-group">
+                    <div class="controls">
+                        <p style="font-weight: bold;"><span>{{=it.product_name}}</span> - <span style="color: red;">{{=it.price}} грн.</span></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <p style="font-weight: bold;"><span>Доставка - бесплатно</span></p>
+                    </div>
+                </div>
+                <hr>
                 <div id="error-messages" class="alert alert-danger" style="display: none;"></div>
                 <div class="control-group">
                     <label class="control-label" for="inputName">Ф.И.О <span style="color:red;">*</span></label>
                     <div class="controls">
-                        <input type="text" class="user_name" id="inputName" placeholder="Ф.И.О"/><br>
+                        <input type="text" class="user_name span6" id="inputName" placeholder="Ф.И.О"/><br>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputPhone">Телефон <span style="color:red;">*</span></label>
                     <div class="controls">
-                        <input type="text" class="user_phone" id="inputPhone" placeholder="Телефон"/><br>
+                        <input type="text" class="user_phone span6" id="inputPhone" placeholder="Телефон"/><br>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">E-Mail <span style="color:red;">*</span></label>
                     <div class="controls">
-                        <input type="text" class="user_email" id="inputEmail" placeholder="E-Mail"/><br>
+                        <input type="text" class="user_email span6" id="inputEmail" placeholder="E-Mail"/><br>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputAddress">Адрес доставки</label>
                     <div class="controls">
-                        <textarea id="inputAddress" class="user_delivery_address" placeholder="Адрес доставки"></textarea>
+                        <textarea id="inputAddress" class="user_delivery_address span6" placeholder="Адрес доставки"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputComment">Комментарий</label>
+                    <div class="controls">
+                        <textarea id="inputComment" class="user_comment span6" placeholder="Комментарий"></textarea>
                     </div>
                 </div>
                 <input type="hidden" name="operation_xml" class="xml_encoded" value="{{=it.xml_encoded}}" />

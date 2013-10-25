@@ -6,7 +6,7 @@
     <order_id><?php echo md5(microtime()) ?></order_id>
     <amount><?php echo $price ?></amount>
     <currency>UAH</currency>
-    <description>Оплата товара на сайте smartrobot.com.ua</description>
+    <description>Оплата товара на сайте smartrobot.com.ua. Наименование товара: "<?php echo $product_name?>"</description>
     <default_phone></default_phone>
     <pay_way>card</pay_way>
     <goods_id>"<?php echo $product_id ?>"</goods_id>

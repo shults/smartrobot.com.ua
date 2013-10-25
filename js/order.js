@@ -41,24 +41,30 @@ $(function(){
             $(document).on('click', '.product-item input.pay', function(e) {
                 var product_id = $(this).parent().parent().attr('id').match(/item(\d+)$/)[1];
                 var price = $(this).parent().find('.price .product-price-data').attr('data-cost');
+                var product_name = $(this).parent().find('.product-preview-img').attr('title') ||
+                                   $(this).parent().find('.product-preview-img').attr('alt') ||
+                                   $(this).parent().find('a.blue').html();
 
                 $.ajax({
                     url: 'get_form_data',
                     type: 'POST',
                     data: {
                         product_id: product_id,
-                        price: price
+                        price: price,
+                        product_name: product_name
                     },
                     success: function(data, textStatus, jqXHT) {
 
                         $.fancybox({
-                            width: 640,
+//                            width: 700,
                             autoSize: true,
                             autoDimensions: true,
                             locked : false,
                             content: App.templates.formTemplate({
                                 xml_encoded: data.xml_encoded,
-                                sign: data.sign
+                                sign: data.sign,
+                                product_name: product_name,
+                                price: price
                             })
                         });
 
@@ -75,6 +81,7 @@ $(function(){
                 var user_phone = $(this).find('.user_phone').val();
                 var user_email = $(this).find('.user_email').val();
                 var user_delivery_address = $(this).find('.user_delivery_address').val();
+                var user_comment = $(this).find('.user_comment').val();
 
                 var errors = [];
 
@@ -114,6 +121,7 @@ $(function(){
                             user_phone: user_phone,
                             user_email: user_email,
                             user_delivery_address: user_delivery_address,
+                            user_comment: user_comment,
                             xml_encoded: $(this).find('.xml_encoded').val()
                         },
                         success: function (data, textSatatus, jqXHR) {
